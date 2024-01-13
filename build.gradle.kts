@@ -7,3 +7,12 @@ plugins {
     alias(libs.plugins.kotlinAndroid).apply(false)
     alias(libs.plugins.kotlinMultiplatform).apply(false)
 }
+
+// Value stored in gradle.properties
+val gradleWrapperVersion: String by project
+
+val wrapper by tasks.existing(Wrapper::class) {
+    // Change this version and run `./gradlew wrapper` in order to update the gradle wrapper.
+    gradleVersion = gradleWrapperVersion
+    distributionType = Wrapper.DistributionType.BIN
+}
