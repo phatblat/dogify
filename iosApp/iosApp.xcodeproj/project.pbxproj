@@ -97,7 +97,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7555FFA5242A565B00829871 /* Build configuration list for PBXNativeTarget "iosApp" */;
 			buildPhases = (
-				7555FFB5242A651A00829871 /* ShellScript */,
+				7555FFB5242A651A00829871 /* Gradle: embedAndSignAppleFrameworkForXcode */,
 				7555FF77242A565900829871 /* Sources */,
 				7555FF78242A565900829871 /* Frameworks */,
 				7555FF79242A565900829871 /* Resources */,
@@ -159,7 +159,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		7555FFB5242A651A00829871 /* ShellScript */ = {
+		7555FFB5242A651A00829871 /* Gradle: embedAndSignAppleFrameworkForXcode */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -168,9 +168,11 @@
 			);
 			inputPaths = (
 			);
+			name = "Gradle: embedAndSignAppleFrameworkForXcode";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"$(PROJECT_DIR)/../shared/build/xcode-frameworks/Debug/iphonesimulator17.2/shared.framework/",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
