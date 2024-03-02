@@ -8,6 +8,7 @@ compose-material3 = "1.1.2"
 androidx-activityCompose = "1.8.0"
 ktor = "2.3.7"
 kotlinx-serialization = "1.5.1"
+ktorClientAndroid = "2.3.8"
 lifecycleRuntimeKtx = "2.7.0"
 
 [libraries]
@@ -21,6 +22,7 @@ compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview"
 compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose" }
 compose-material3 = { module = "androidx.compose.material3:material3", version.ref = "compose-material3" }
 
+ktor-client-android = { module = "io.ktor:ktor-client-android", version.ref = "ktorClientAndroid" }
 ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
 ktor-client-json = { module = "io.ktor:ktor-client-json", version.ref = "ktor" }
 ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
