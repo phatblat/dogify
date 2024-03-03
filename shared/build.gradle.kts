@@ -47,3 +47,7 @@ android {
         minSdk = 24
     }
 }
+
+tasks {
+    val testClasses by creating
+}
