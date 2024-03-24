@@ -29,6 +29,7 @@ kotlin {
             api(libs.koin.core)
 
             implementation(libs.koin.core)
+            implementation(libs.kotlinx.coroutines.core)
             implementation(libs.kotlinx.serialization.core)
             implementation(libs.kotlinx.serialization.json)
             implementation(libs.ktor.client.content.negotiation)
@@ -45,8 +46,10 @@ kotlin {
             implementation(kotlin("test-annotations-common"))
         }
         androidMain.dependencies {
+            implementation(libs.kotlinx.coroutines.core)
         }
         iosMain.dependencies {
+            implementation(libs.kotlinx.coroutines.core.native)
         }
     }
 }
