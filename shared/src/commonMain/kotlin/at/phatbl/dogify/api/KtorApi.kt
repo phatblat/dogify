@@ -2,10 +2,14 @@ package at.phatbl.dogify.api
 
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
-import io.ktor.client.plugins.logging.LogLevel
+import io.ktor.client.plugins.logging.LogLevel.ALL
 import io.ktor.client.plugins.logging.Logger
 import io.ktor.client.plugins.logging.Logging
 import io.ktor.client.plugins.logging.SIMPLE
+import io.ktor.client.request.HttpRequestBuilder
+import io.ktor.http.Url
+import io.ktor.http.path
+import io.ktor.http.takeFrom
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 
@@ -27,7 +31,14 @@ internal abstract class KtorApi {
         }
         install(Logging) {
             logger = Logger.SIMPLE
-            level = LogLevel.ALL
+            level = ALL
         }
+    }
+}
+
+fun HttpRequestBuilder.apiUrl(path: String) {
+    url {
+        takeFrom(Url("https://dog.ceo"))
+        path("api", path)
     }
 }
