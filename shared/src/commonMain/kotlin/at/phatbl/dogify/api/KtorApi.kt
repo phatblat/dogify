@@ -1,11 +1,12 @@
 package at.phatbl.dogify.api
 
 import io.ktor.client.HttpClient
-import io.ktor.client.plugins.kotlinx.serializer.KotlinxSerializer
+import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.plugins.logging.LogLevel
 import io.ktor.client.plugins.logging.Logger
 import io.ktor.client.plugins.logging.Logging
 import io.ktor.client.plugins.logging.SIMPLE
+import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 
 /**
@@ -18,10 +19,12 @@ internal abstract class KtorApi {
         ignoreUnknownKeys = true
     }
     val client = HttpClient {
-        // FIXME: can't import JsonFeature
-//        install(JsonFeature) {
-//            serializer = KotlinxSerializer(jsonConfiguration)
-//        }
+        install(ContentNegotiation) {
+            json(Json {
+                prettyPrint = true
+                isLenient = true
+            })
+        }
         install(Logging) {
             logger = Logger.SIMPLE
             level = LogLevel.ALL
