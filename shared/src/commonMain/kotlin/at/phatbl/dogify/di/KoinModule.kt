@@ -3,11 +3,14 @@ package at.phatbl.dogify.di
 import at.phatbl.dogify.FetchBreedsUseCase
 import at.phatbl.dogify.GetBreedsUseCase
 import at.phatbl.dogify.ToggleFavouriteStateUseCase
+import at.phatbl.dogify.api.BreedsApi
+import at.phatbl.dogify.repository.BreedsRemoteSource
+import at.phatbl.dogify.repository.BreedsRepository
+import at.phatbl.dogify.util.getDispatcherProvider
 import org.koin.core.context.startKoin
 import org.koin.dsl.KoinAppDeclaration
 import org.koin.dsl.module
 
-/*
 private val apiModule = module { factory { BreedsApi() } }
 
 private val repositoryModule = module {
@@ -33,4 +36,3 @@ fun initKoin(appDeclaration: KoinAppDeclaration = {}) = startKoin {
     appDeclaration()
     modules(sharedModules)
 }
-*/
