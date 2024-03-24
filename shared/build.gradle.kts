@@ -14,9 +14,9 @@ kotlin {
     }
 
     listOf(
-        iosX64(),
         iosArm64(),
-        iosSimulatorArm64()
+        iosSimulatorArm64(),
+        iosX64(),
     ).forEach {
         it.binaries.framework {
             baseName = "shared"
@@ -30,8 +30,8 @@ kotlin {
 
             implementation(libs.koin.core)
             implementation(libs.kotlinx.serialization.core)
-            implementation(libs.kotlinx.serialization.coreJvm)
             implementation(libs.kotlinx.serialization.json)
+            implementation(libs.ktor.client.content.negotiation)
             implementation(libs.ktor.client.core)
             implementation(libs.ktor.client.json)
             implementation(libs.ktor.client.logging)
@@ -43,6 +43,10 @@ kotlin {
             implementation(libs.kotlin.test)
             implementation(kotlin("test-common"))
             implementation(kotlin("test-annotations-common"))
+        }
+        androidMain.dependencies {
+        }
+        iosMain.dependencies {
         }
     }
 }
