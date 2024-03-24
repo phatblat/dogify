@@ -46,9 +46,11 @@ kotlin {
         }
         androidMain.dependencies {
             implementation(libs.kotlinx.coroutines.core)
+            implementation(libs.ktor.client.android)
         }
         iosMain.dependencies {
             implementation(libs.kotlinx.coroutines.core.native)
+            implementation(libs.ktor.client.ios)
         }
     }
 }
