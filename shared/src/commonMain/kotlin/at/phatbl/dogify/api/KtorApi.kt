@@ -18,15 +18,13 @@ import kotlinx.serialization.json.Json
  * https://github.com/PacktPublishing/Simplifying-Application-Development-with-Kotlin-Multiplatform-Mobile/blob/4f820abbef327a53b702f92f2e346fa86b89f36d/shared/src/commonMain/kotlin/com/nagyrobi144/dogify/api/KtorApi.kt#L12
  */
 internal abstract class KtorApi {
-    private val jsonConfiguration = Json {
-        prettyPrint = true
-        ignoreUnknownKeys = true
-    }
     val client = HttpClient {
         install(ContentNegotiation) {
             json(Json {
                 prettyPrint = true
+                ignoreUnknownKeys = true
                 isLenient = true
+                useAlternativeNames = false
             })
         }
         install(Logging) {
@@ -34,11 +32,13 @@ internal abstract class KtorApi {
             level = ALL
         }
     }
-}
 
-fun HttpRequestBuilder.apiUrl(path: String) {
-    url {
-        takeFrom(Url("https://dog.ceo"))
-        path("api", path)
+    /** Use this method for configuring the request url */
+    fun HttpRequestBuilder.apiUrl(path: String) {
+        url {
+            takeFrom(Url("https://dog.ceo"))
+            path("api", path)
+        }
     }
 }
+
