@@ -3,6 +3,7 @@ agp = "8.2.1"
 junit = "4.13.2"
 koin = "3.1.4"
 kotlin = "1.9.20"
+core-ktx = "1.6.0"
 compose = "1.5.4"
 compose-compiler = "1.5.4"
 compose-material3 = "1.1.2"
@@ -16,6 +17,7 @@ lifecycle-viewmodel-ktx = "2.7.0"
 sqldelight = "2.0.0"
 
 [libraries]
+androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "core-ktx" }
 androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycle-runtime-ktx" }
 androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle-viewmodel-ktx" }
 junit = { module = "junit:junit", version.ref = "junit" }
