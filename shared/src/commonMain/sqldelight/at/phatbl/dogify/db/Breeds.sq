@@ -1,9 +1,9 @@
-import kotlinx.serialization.descriptors.PrimitiveKind.BOOLEAN;
+import kotlin.Boolean;
 
 CREATE TABLE breeds(
     name TEXT NOT NULL,
     imageUrl TEXT NOT NULL,
-    isFavourite INTEGER AS BOOLEAN DEFAULT 0
+    isFavourite INTEGER AS Boolean DEFAULT 0
 );
 insert:
 INSERT OR REPLACE INTO breeds(name, imageUrl, isFavourite)
