@@ -14,7 +14,7 @@ import org.koin.dsl.module
 private val apiModule = module { factory { BreedsApi() } }
 
 private val repositoryModule = module {
-    single { BreedsRepository(get()) }
+    single { BreedsRepository(get(), get()) }
     factory { BreedsRemoteSource(get(), get()) }
 }
 
