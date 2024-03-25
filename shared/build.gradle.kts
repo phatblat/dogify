@@ -1,3 +1,5 @@
+import org.gradle.plugins.ide.eclipse.model.SourceFolder
+
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinMultiplatform)
@@ -65,6 +67,14 @@ android {
     compileSdk = 34
     defaultConfig {
         minSdk = 24
+    }
+}
+
+sqldelight {
+    databases {
+        create("DogifyDatabase") {
+            packageName.set("at.phatbl.dogify.db")
+        }
     }
 }
 
