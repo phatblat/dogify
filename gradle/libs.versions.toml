@@ -11,11 +11,13 @@ kotlinx-coroutines-native = "1.8.0-native-mt"
 androidx-activityCompose = "1.8.0"
 kotlinx-serialization = "1.6.2"
 ktor = "2.3.8"
-lifecycleRuntimeKtx = "2.7.0"
+lifecycle-runtime-ktx = "2.7.0"
+lifecycle-viewmodel-ktx = "2.7.0"
 sqldelight = "2.0.0"
 
 [libraries]
-androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
+androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycle-runtime-ktx" }
+androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle-viewmodel-ktx" }
 junit = { module = "junit:junit", version.ref = "junit" }
 koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
