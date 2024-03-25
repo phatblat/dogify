@@ -44,6 +44,7 @@ dependencies {
     implementation(libs.compose.ui.tooling.preview)
     implementation(libs.compose.material3)
     implementation(libs.androidx.activity.compose)
+    implementation(libs.koin.android)
     implementation(libs.ktor.client.android)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     debugImplementation(libs.compose.ui.tooling)
