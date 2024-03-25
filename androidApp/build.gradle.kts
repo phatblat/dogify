@@ -39,6 +39,8 @@ android {
 }
 
 dependencies {
+    implementation(project(":shared"))
+
     implementation(projects.shared)
     implementation(libs.compose.ui)
     implementation(libs.compose.ui.tooling.preview)
