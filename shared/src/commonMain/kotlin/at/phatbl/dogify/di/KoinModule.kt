@@ -4,6 +4,7 @@ import at.phatbl.dogify.FetchBreedsUseCase
 import at.phatbl.dogify.GetBreedsUseCase
 import at.phatbl.dogify.ToggleFavouriteStateUseCase
 import at.phatbl.dogify.api.BreedsApi
+import at.phatbl.dogify.repository.BreedsLocalSource
 import at.phatbl.dogify.repository.BreedsRemoteSource
 import at.phatbl.dogify.repository.BreedsRepository
 import at.phatbl.dogify.util.getDispatcherProvider
@@ -16,6 +17,7 @@ private val apiModule = module { factory { BreedsApi() } }
 private val repositoryModule = module {
     single { BreedsRepository(get(), get()) }
     factory { BreedsRemoteSource(get(), get()) }
+    factory { BreedsLocalSource(get(), get()) }
 }
 
 private val usecaseModule = module {
