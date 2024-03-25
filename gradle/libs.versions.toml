@@ -12,7 +12,7 @@ androidx-activityCompose = "1.8.0"
 kotlinx-serialization = "1.6.2"
 ktor = "2.3.8"
 lifecycleRuntimeKtx = "2.7.0"
-sqldelight = "2.0.1"
+sqldelight = "2.0.0"
 
 [libraries]
 androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
