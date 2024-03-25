@@ -50,6 +50,7 @@ kotlin {
             implementation(kotlin("test-annotations-common"))
         }
         androidMain.dependencies {
+            implementation(libs.koin.android)
             implementation(libs.kotlinx.coroutines.core)
             implementation(libs.ktor.client.android)
             implementation(libs.sqldelight.android.driver)
