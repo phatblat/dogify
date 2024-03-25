@@ -1,16 +1,27 @@
-package at.phatbl.dogify.android
-/*
+package at.phatbl.dogify.repository
+
+import app.cash.sqldelight.coroutines.asFlow
+import app.cash.sqldelight.coroutines.mapToList
+import at.phatbl.dogify.Breed
+import at.phatbl.dogify.db.DogifyDatabase
+import at.phatbl.dogify.util.DispatcherProvider
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.withContext
+
 internal class BreedsLocalSource(
     database: DogifyDatabase,
     private val dispatcherProvider: DispatcherProvider
 ) {
     private val dao = database.breedsQueries
-    val breeds = dao.selectAll().asFlow().mapToList()
-        .map { breeds ->
-            breeds.map {
-                Breed(it.name, it.imageUrl, it.isFavourite ?: false)
+
+    suspend fun getBreeds() = withContext(dispatcherProvider.io) {
+        dao.selectAll().asFlow().mapToList(coroutineContext)
+            .map { breeds ->
+                breeds.map {
+                    Breed(it.name, it.imageUrl, it.isFavourite ?: false)
+                }
             }
-        }
+    }
 
     suspend fun selectAll() = withContext(dispatcherProvider.io) {
         dao.selectAll { name, imageUrl, isFavourite ->
@@ -31,5 +42,3 @@ internal class BreedsLocalSource(
         dao.clear()
     }
 }
-
-*/
