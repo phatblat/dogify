@@ -14,7 +14,7 @@ class MainViewModel(
     breedsRepository: BreedsRepository,
     private val getBreeds: GetBreedsUseCase,
     private val fetchBreeds: FetchBreedsUseCase,
-    private val onToggleFavouriteState: ToggleFavouriteStateUseCase
+    private val onToggleFavouriteState: ToggleFavouriteStateUseCase,
 ) : ViewModel() {
     enum class State {
         LOADING,
@@ -46,8 +46,7 @@ class MainViewModel(
             } else {
                 breeds
             }.also {
-                _state.value = if (it.isEmpty())
-                    State.EMPTY else State.NORMAL
+                _state.value = if (it.isEmpty()) State.EMPTY else State.NORMAL
             }
         }.stateIn(
             viewModelScope,

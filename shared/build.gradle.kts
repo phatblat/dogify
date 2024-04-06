@@ -1,5 +1,3 @@
-import org.gradle.plugins.ide.eclipse.model.SourceFolder
-
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinMultiplatform)
