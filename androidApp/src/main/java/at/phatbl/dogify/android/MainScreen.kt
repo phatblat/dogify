@@ -111,7 +111,7 @@ fun Breeds(
     breeds: List<Breed>,
     onFavouriteTapped: (Breed) -> Unit = {},
 ) {
-    LazyVerticalGrid(columns = GridCells.Fixed(1)) {
+    LazyVerticalGrid(columns = GridCells.Fixed(2)) {
         items(breeds) {
             Column(Modifier.padding(8.dp)) {
                 Image(
