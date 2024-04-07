@@ -40,13 +40,26 @@ android {
 
 dependencies {
     implementation(projects.shared)
+
+    implementation(libs.accompanist.coil)
+    implementation(libs.accompanist.swiperefresh)
+    implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.compose.foundation)
+    implementation(libs.androidx.compose.material)
+    implementation(libs.androidx.compose.material.icons.core)
+    implementation(libs.androidx.compose.material.icons.extended)
+    implementation(libs.androidx.compose.tooling)
+    implementation(libs.androidx.compose.ui)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.compose.ui)
     implementation(libs.compose.ui.tooling.preview)
     implementation(libs.compose.material3)
     implementation(libs.androidx.activity.compose)
     implementation(libs.koin.android)
     implementation(libs.ktor.client.android)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
     debugImplementation(libs.compose.ui.tooling)
 
     testImplementation(kotlin("test-junit"))
