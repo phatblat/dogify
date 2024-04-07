@@ -3,16 +3,15 @@ package at.phatbl.dogify.repository
 import at.phatbl.dogify.Breed
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
-import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.supervisorScope
 
 class BreedsRepository internal constructor(
     private val remoteSource: BreedsRemoteSource,
     private val localSource: BreedsLocalSource,
 ) {
-    val breeds = runBlocking { localSource.getBreeds() }
+    val breeds = localSource.breeds
 
-    suspend fun get() = with(localSource.selectAll()) {
+    internal suspend fun get() = with(localSource.selectAll()) {
         if (isNullOrEmpty()) {
             return@with fetch()
         } else {
@@ -20,7 +19,7 @@ class BreedsRepository internal constructor(
         }
     }
 
-    suspend fun fetch() = supervisorScope {
+    private suspend fun fetch() = supervisorScope {
         remoteSource.getBreeds().map {
             async {
                 Breed(
@@ -34,5 +33,5 @@ class BreedsRepository internal constructor(
         }
     }
 
-    suspend fun update(breed: Breed) = localSource.update(breed)
+    internal suspend fun update(breed: Breed) = localSource.update(breed)
 }

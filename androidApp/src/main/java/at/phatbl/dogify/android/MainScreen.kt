@@ -1,7 +1,6 @@
 package at.phatbl.dogify.android
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
@@ -14,7 +13,6 @@ import androidx.compose.material.icons.outlined.FavoriteBorder
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import at.phatbl.dogify.Breed
 import com.google.accompanist.coil.rememberCoilPainter
@@ -95,7 +93,6 @@ fun MainScreen(viewModel: MainViewModel) {
 
                 if (events == MainViewModel.Event.Error) {
                     LaunchedEffect(Unit) {
-//                    snackbarCoroutineScope.launch {
                         scaffoldState.snackbarHostState.apply {
                             currentSnackbarData?.dismiss()
                             showSnackbar("Oops, something went wrong...")
@@ -103,16 +100,6 @@ fun MainScreen(viewModel: MainViewModel) {
                     }
                 }
 
-                // Footer
-                Spacer(Modifier.weight(1f))
-                Text(
-                    text = """
-                        Footer
-                    """.trimIndent(),
-                    modifier = Modifier
-                        .align(Alignment.CenterHorizontally)
-                        .background(Color.Red),
-                )
                 Spacer(Modifier.weight(1f))
             }
         }
@@ -127,12 +114,6 @@ fun Breeds(
     LazyVerticalGrid(columns = GridCells.Fixed(1)) {
         items(breeds) {
             Column(Modifier.padding(8.dp)) {
-                Text(
-                    text = "Breeds",
-                    modifier = Modifier
-                        .align(Alignment.CenterHorizontally)
-                        .background(Color.Red),
-                )
                 Image(
                     painter = rememberCoilPainter(request = it.imageUrl),
                     contentDescription = "${it.name}-image",

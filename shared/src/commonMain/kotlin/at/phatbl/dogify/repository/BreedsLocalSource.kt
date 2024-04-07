@@ -10,24 +10,23 @@ import kotlinx.coroutines.withContext
 
 internal class BreedsLocalSource(
     database: DogifyDatabase,
-    private val dispatcherProvider: DispatcherProvider
+    private val dispatcherProvider: DispatcherProvider,
 ) {
     private val dao = database.breedsQueries
 
-    suspend fun getBreeds() = withContext(dispatcherProvider.io) {
-        dao.selectAll().asFlow().mapToList(coroutineContext)
-            .map { breeds ->
-                breeds.map {
-                    Breed(it.name, it.imageUrl, it.isFavourite ?: false)
-                }
+    val breeds = dao.selectAll()
+        .asFlow()
+        .mapToList(dispatcherProvider.io)
+        .map { breeds ->
+            breeds.map {
+                Breed(it.name, it.imageUrl, it.isFavourite ?: false)
             }
-    }
+        }
 
     suspend fun selectAll() = withContext(dispatcherProvider.io) {
         dao.selectAll { name, imageUrl, isFavourite ->
             Breed(name, imageUrl, isFavourite ?: false)
-        }
-            .executeAsList()
+        }.executeAsList()
     }
 
     suspend fun insert(breed: Breed) = withContext(dispatcherProvider.io) {
